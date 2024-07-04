@@ -30,18 +30,23 @@ class WelcomeScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 40),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 13, horizontal: 30),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),
-                          color: Colors.red),
-                      child: const Text(
-                        'Get Started',
-                        style: TextStyle(
-                            fontFamily: 'Roboto',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700),
+                    InkWell(
+                      onTap: (){
+                      },
+                      borderRadius: BorderRadius.circular(100),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 13, horizontal: 30),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: Colors.red),
+                        child: const Text(
+                          'Get Started',
+                          style: TextStyle(
+                              fontFamily: 'Roboto',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700),
+                        ),
                       ),
                     )
                   ],
