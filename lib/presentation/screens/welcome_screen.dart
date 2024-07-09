@@ -28,22 +28,54 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+       decoration: const BoxDecoration(
+        gradient: LinearGradient(colors: [
+          Color(0xFF010101),
+          Color(0xFF010101),
+          Color.fromARGB(0, 1, 1, 1),
+          Color.fromARGB(0, 1, 1, 1),
+          Color.fromARGB(0, 1, 1, 1),
+          Color.fromARGB(0, 1, 1, 1),
+          Color.fromARGB(0, 1, 1, 1),
+          ],
+        begin: Alignment.topCenter,
+        end: Alignment.center
+        ),
+      ),
       alignment: Alignment.topCenter,
-      child: Row(
+      child: const Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(border: Border.all(color: Colors.red)),
-              height: 100,
-              child: const Center(child: Text('Logo 2')),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 80,
+                  child: Center(child: Text('Logo 2')),
+                ),
+              ],
             ),
           ),
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(border: Border.all(color: Colors.red)),
-              height: 100,
-              child: const Center(child: Text('Logo 2')),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 80,
+                  child: Center(child: Text('Logo 2')),
+                ),
+                // Container(
+                //   decoration: const BoxDecoration(
+                //     gradient: LinearGradient(colors: [
+                //       Color(0xFF010101),
+                //       Color.fromARGB(0, 1, 1, 1)
+                //       ],
+                //     begin: Alignment.topCenter,
+                //     end: Alignment.bottomCenter
+                //     ),
+                //   ),
+                //   height: 120,
+                // ),
+              ],
             ),
           ),
         ],
@@ -126,19 +158,36 @@ class FoteerSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: <Color>[
+            const Color(0xFF010101), 
+            const Color(0xFF010101), 
+            const Color(0xFF010101).withOpacity(0.6),
+            const Color(0xFF010101).withOpacity(0.2),
+            const Color(0xFF010101).withOpacity(0.2),
+            const Color(0xFF010101).withOpacity(0.1),
+            const Color(0xFF010101).withOpacity(0.0),
+          ],
+          begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
+          stops: const [0.0, 0.2, 0.3, 0.5, 0.7, 0.6, 1.0]
+        ),
+      ),
       alignment: Alignment.bottomCenter,
       child: const Padding(
-        padding: EdgeInsets.only(bottom: 70),
+        padding: EdgeInsets.only(bottom: 120),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               'Discover\nNew Trails',
               style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.w700,
-                  fontSize: 28,
-                  height: 1.2),
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.w700,
+                fontSize: 28,
+                height: 1.2,
+              ),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 25),
