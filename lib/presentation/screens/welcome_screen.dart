@@ -35,7 +35,37 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment:  Alignment.topCenter,
-      child: const Text('data'),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.red
+                )
+              ),
+              height: 100,
+              child:const  Center(
+                child: Text('Logo 2')
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.red
+                )
+              ),
+              height: 100,
+              child:const  Center(
+                child: Text('Logo 2')
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
