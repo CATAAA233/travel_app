@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/config/theme/app_theme.dart';
+import 'package:travel_app/presentation/screens/home_screen.dart';
 import 'package:travel_app/presentation/screens/welcome_screen.dart';
 
 void main() {
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       title: 'Travel App',
       theme: AppTheme().getTheme(),
       routes: {
-        '/':(context) => const WelcomeScreen()
+        '/':(context) => const WelcomeScreen(),
+        '/home':(context)=> const HomeScreen()
       },
     );
   }
