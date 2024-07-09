@@ -166,7 +166,7 @@ class FoteerSection extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'Roboto',
                 fontWeight: FontWeight.w700,
-                fontSize: 28,
+                fontSize: 32,
                 height: 1.2,
               ),
               textAlign: TextAlign.center,
@@ -197,8 +197,14 @@ class CustomButton extends StatelessWidget {
                 left: Radius.circular(100), right: Radius.circular(100)),
             color: Colors.orange),
         child: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Text('Get Started'),
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+          child: Text(
+            'Get started',
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              fontWeight: FontWeight.w700
+            ),
+          ),
         ),
       ),
     );
