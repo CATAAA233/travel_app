@@ -28,7 +28,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-       decoration: const BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(colors: [
           Color(0xFF010101),
           Color(0xFF010101),
@@ -37,10 +37,7 @@ class Header extends StatelessWidget {
           Color.fromARGB(0, 1, 1, 1),
           Color.fromARGB(0, 1, 1, 1),
           Color.fromARGB(0, 1, 1, 1),
-          ],
-        begin: Alignment.topCenter,
-        end: Alignment.center
-        ),
+        ], begin: Alignment.topCenter, end: Alignment.center),
       ),
       alignment: Alignment.topCenter,
       child: const Row(
@@ -63,18 +60,6 @@ class Header extends StatelessWidget {
                   height: 80,
                   child: Center(child: Text('Logo 2')),
                 ),
-                // Container(
-                //   decoration: const BoxDecoration(
-                //     gradient: LinearGradient(colors: [
-                //       Color(0xFF010101),
-                //       Color.fromARGB(0, 1, 1, 1)
-                //       ],
-                //     begin: Alignment.topCenter,
-                //     end: Alignment.bottomCenter
-                //     ),
-                //   ),
-                //   height: 120,
-                // ),
               ],
             ),
           ),
@@ -135,17 +120,14 @@ class ImageCard extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 9 / 16,
       child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10)
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image.asset(
-            'assets/images/landscapes/pexels-packermann-1666021.jpg',
-            fit: BoxFit.cover,
-          ),
-        )
-      ),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset(
+              'assets/images/landscapes/pexels-packermann-1666021.jpg',
+              fit: BoxFit.cover,
+            ),
+          )),
     );
   }
 }
@@ -160,19 +142,18 @@ class FoteerSection extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: <Color>[
-            const Color(0xFF010101), 
-            const Color(0xFF010101), 
-            const Color(0xFF010101).withOpacity(0.6),
-            const Color(0xFF010101).withOpacity(0.2),
-            const Color(0xFF010101).withOpacity(0.2),
-            const Color(0xFF010101).withOpacity(0.1),
-            const Color(0xFF010101).withOpacity(0.0),
-          ],
-          begin: Alignment.bottomCenter,
-          end: Alignment.topCenter,
-          stops: const [0.0, 0.2, 0.3, 0.5, 0.7, 0.6, 1.0]
-        ),
+            colors: <Color>[
+              const Color(0xFF010101),
+              const Color(0xFF010101),
+              const Color(0xFF010101).withOpacity(0.6),
+              const Color(0xFF010101).withOpacity(0.2),
+              const Color(0xFF010101).withOpacity(0.2),
+              const Color(0xFF010101).withOpacity(0.1),
+              const Color(0xFF010101).withOpacity(0.0),
+            ],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            stops: const [0.0, 0.2, 0.3, 0.5, 0.7, 0.6, 1.0]),
       ),
       alignment: Alignment.bottomCenter,
       child: const Padding(
@@ -207,7 +188,9 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).pushNamed('/home');
+      },
       child: Container(
         decoration: const BoxDecoration(
             borderRadius: BorderRadius.horizontal(
