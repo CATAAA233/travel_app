@@ -89,15 +89,24 @@ class ScrollsContainer extends StatelessWidget {
   }
 }
 
-class CustomListView extends StatelessWidget {
+class CustomListView extends StatefulWidget {
   const CustomListView({
     super.key,
   });
 
   @override
+  State<CustomListView> createState() => _CustomListViewState();
+}
+
+class _CustomListViewState extends State<CustomListView>
+    with TickerProviderStateMixin {
+  @override
   Widget build(BuildContext context) {
+    final scrollController = ScrollController();
+
     return Expanded(
       child: ListView.builder(
+        controller: scrollController,
         itemBuilder: (context, _) {
           return const Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
@@ -200,10 +209,7 @@ class CustomButton extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
           child: Text(
             'Get started',
-            style: TextStyle(
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.w700
-            ),
+            style: TextStyle(fontFamily: 'Roboto', fontWeight: FontWeight.w700),
           ),
         ),
       ),
