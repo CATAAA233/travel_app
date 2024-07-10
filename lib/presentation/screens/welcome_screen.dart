@@ -69,20 +69,54 @@ class Header extends StatelessWidget {
   }
 }
 
-class ScrollsContainer extends StatelessWidget {
+class ScrollsContainer extends StatefulWidget {
   const ScrollsContainer({
     super.key,
   });
 
   @override
+  State<ScrollsContainer> createState() => _ScrollsContainerState();
+}
+
+class _ScrollsContainerState extends State<ScrollsContainer>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController animationController;
+  late final Animation animation;
+
+  final ScrollController scrollController1 = ScrollController();
+  final ScrollController scrollController2 = ScrollController();
+
+  @override
+  void initState() {
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 5));
+
+    animation = Tween<double>(
+      begin: 0,
+      end: 1,
+    ).animate(animationController);
+
+    animationController.addListener(() {
+      // print('scrollController1.position.maxScrollExtent');
+  
+      print(animation.value);
+      setState(() {});
+    });
+
+    animationController.forward();
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(20.0),
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
       child: Row(
         children: [
-          CustomListView(),
-          SizedBox(width: 20),
-          CustomListView(),
+          CustomListView(scrollController: scrollController1),
+          const SizedBox(width: 20),
+          CustomListView(scrollController: scrollController2),
         ],
       ),
     );
@@ -90,23 +124,19 @@ class ScrollsContainer extends StatelessWidget {
 }
 
 class CustomListView extends StatefulWidget {
-  const CustomListView({
-    super.key,
-  });
+  final ScrollController scrollController;
+  const CustomListView({super.key, required this.scrollController});
 
   @override
   State<CustomListView> createState() => _CustomListViewState();
 }
 
-class _CustomListViewState extends State<CustomListView>
-    with TickerProviderStateMixin {
+class _CustomListViewState extends State<CustomListView> {
   @override
   Widget build(BuildContext context) {
-    final scrollController = ScrollController();
-
     return Expanded(
       child: ListView.builder(
-        controller: scrollController,
+        controller: widget.scrollController,
         itemBuilder: (context, _) {
           return const Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
